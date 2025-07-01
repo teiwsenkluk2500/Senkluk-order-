@@ -1,1 +1,45 @@
-<html><body>เว็บเส้นคลุก</body></html>
+// เว็บสั่งอาหารร้านเตี๋ยวเส้นคลุก
+import React from "react";
+import { Button } from "@/components/ui/button";
+
+const menuItems = [
+  { name: "บะหมี่เหลือง (ขายดี)", price: "45 / 55", image: "/images/yellownoodle.jpg" },
+  { name: "บะหมี่หยก", price: "45 / 55", image: "/images/greennoodle.jpg" },
+  { name: "หมี่ขาว (ขายดี)", price: "45 / 55", image: "/images/whitenoodle.jpg" },
+  { name: "เส้นเล็ก", price: "45 / 55", image: "/images/senlek.jpg" },
+  { name: "เส้นใหญ่", price: "45 / 55", image: "/images/senyai.jpg" },
+  { name: "เย็นตาโฟ (เลือกเส้นได้)", price: "55", image: "/images/yentafo.jpg" },
+  { name: "ข้าวซอยไก่", price: "55", image: "/images/khaosoi.jpg" },
+  { name: "ข้าวหน้าหมูญี่ปุ่น", price: "50", image: "/images/japanpork.jpg" }
+];
+
+export default function Home() {
+  return (
+    <main className="p-4 max-w-md mx-auto">
+      <div className="text-center mb-4">
+        <img src="/images/logo.png" alt="โลโก้ร้าน" className="w-32 mx-auto mb-2" />
+        <h1 className="text-2xl font-bold">เตี๋ยวเส้นคลุก @แยกวุ่นวาย พิษณุโลก</h1>
+        <p className="text-sm text-gray-600">สั่งผ่าน LINE OA ได้เลย!</p>
+      </div>
+
+      <div className="grid gap-4">
+        {menuItems.map((item) => (
+          <div key={item.name} className="rounded-xl shadow p-2 bg-white">
+            <img src={item.image} alt={item.name} className="rounded-xl w-full h-40 object-cover" />
+            <div className="mt-2 text-lg font-medium">{item.name}</div>
+            <div className="text-pink-600 font-bold">{item.price} บาท</div>
+          </div>
+        ))}
+      </div>
+
+      <div className="text-center mt-6">
+        <a href="https://lin.ee/DVuZHWt" target="_blank">
+          <Button className="bg-green-500 text-white px-6 py-2 text-lg rounded-full">
+            สั่งผ่าน LINE OA
+          </Button>
+        </a>
+        <p className="text-sm mt-2 text-gray-500">* เพิ่มไข่ออนเซ็น +7 บาท</p>
+      </div>
+    </main>
+  );
+}
